@@ -1,0 +1,43 @@
+var iFileName = "Way of the Closed Fist [by Domannaa].js";
+RequiredSheetVersion(12.999);
+// Add monk subclass
+AddSubClass("monk", "way of the closed fist", {
+	regExpSearch : /^(?=.*\bclosed\b)(?=.*\bfist\b)((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname : "Way of the Closed Fist",
+	source : ["HB", 0],
+	features : {
+		"subclassfeature3" : {
+			name : "Fist Technique",
+			source : ["HB", 0],
+			minlevel : 3,
+			description : desc([
+				"Whenever I hit a creature with both Flurry of Blows attacks I can do one of the following:",
+				"\u2022 The final attack is a critical hit",
+				"\u2022 I gain +10ft movement speed",
+				"\u2022 I gain monk level temp hp",
+			])
+		},
+		"subclassfeature6" : {
+			name : "Brutal Strikes",
+			source : ["HB", 0],
+			minlevel : 6,
+			description : "\n   " + "When i crit on an unarmed strike, i can use stunning strike without spending ki",
+		},
+		"subclassfeature11" : {
+			name : "Hardened Stance",
+			source : ["HB", 0],
+			minlevel : 11,
+			description : "\n   " + "As a reaction, i can reduce damage of a melee attack by Wis + martial arts die",
+			extraname : "Way of the Closed Fist 17",
+			"strike of shaking earth" : {
+				name : "Strike of Shaking Earth",
+				source : ["HB", 0],
+				description : " [3 ki points]" + "\n   " + "When I hit a creature with an unarmed strike, I can release a blast of power" + "\n   " + "The creature takes 5d10 Bludg and 5d10 thunder, and must make a str save" + "\n   " + "If it fails, it is thrown 10ft per 10pts of damage dealt, in any direction."
+			},
+			autoSelectExtrachoices : [{
+				extrachoice : "strike of shaking earth",
+				minlevel : 17
+			}]
+		}
+	}
+}),
